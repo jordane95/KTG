@@ -54,7 +54,7 @@ def load_raw_data(path: str):
             relation_names = relation.split('/')[1:] # List[str]
             sample = {
                 "head_qid": head_qid,
-                "realtion_names": relation_names,
+                "relation_names": relation_names,
                 "tail_qid": tail_qid,
                 "question": question,
             }
