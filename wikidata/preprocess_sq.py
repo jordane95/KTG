@@ -84,7 +84,7 @@ def convert_dataset_format(mode: str = 'train'):
         head_qid = raw_sample['head_qid'] # str, QID
         tail_qid = raw_sample['tail_qid'] # str, QID
         
-        realtion_texts = raw_sample['relation_names']
+        relation_texts = raw_sample['relation_names']
         question = raw_sample['question']
         
         head_texts = qid2text[head_qid] # Dict[str, str], all text fileds for this entity qid
