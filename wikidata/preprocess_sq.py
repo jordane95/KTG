@@ -117,7 +117,7 @@ def convert_dataset_format(mode: str = 'train'):
         idx += 1
     
     # save dataset to disk
-    os.makedirs('sq', exists_ok=True)
+    os.makedirs('sq', exist_ok=True)
     if mode == 'valid': mode = 'dev'
     assert mode in ['train', 'dev', 'test'], f"{mode} is not a valid mode to store json dataset"
     with open(f'sq/{mode}.json', 'w') as f:
