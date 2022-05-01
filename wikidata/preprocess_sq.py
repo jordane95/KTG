@@ -88,8 +88,8 @@ def convert_dataset_format(mode: str = 'train'):
         question = raw_sample['question']
 
         # Dict[str, str], all text fileds for this entity qid
-        head_texts = qid2text[head_qid] if head_qid in qid2text else "none"
-        tail_texts = qid2text[tail_qid] if tail_qid in qid2text else "none"
+        head_texts = qid2text[head_qid] if head_qid in qid2text else {"dummy": "none"}
+        tail_texts = qid2text[tail_qid] if tail_qid in qid2text else {"dummy": "none"}
         
         head = " ".join(head_texts.values())
         relation = " ".join(relation_texts)
