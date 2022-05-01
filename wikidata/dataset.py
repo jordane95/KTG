@@ -80,6 +80,9 @@ class Dataset(data.Dataset):
         return len(ex.text)
 
     def __init__(self, path, label_field, desc_field, class_field, **kwargs):
+        """
+        path: path to the file which contains for each entity id in Wikidata, its label, description, cla
+        """
         fields = [("label", label_field), ("desc", desc_field), ("class", class_field)]
         examples = []
         print('loading dataset from {}'.format(path))
@@ -88,9 +91,9 @@ class Dataset(data.Dataset):
             for line in f.readlines():
                 if "######" in line:
                     line.replace("######", "### ###")
-                label = line.split("###")[1]
-                desc = line.split("###")[2]
-                cla = line.split("###")[3].replace("\n", "")
+                label = line.split("###")[1] # entity name
+                desc = line.split("###")[2] # entity description
+                cla = line.split("###")[3].replace("\n", "") # class
                 print([label, desc, cla])
                 examples.append(data.Example.fromlist([label, desc, cla], fields=fields))
 
